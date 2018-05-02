@@ -9,14 +9,12 @@ import com.auth0.jwt.interfaces.Payload;
 import org.apache.commons.codec.binary.Base64;
 import org.apache.commons.codec.binary.StringUtils;
 
-//import java.util.Arrays;
 import java.util.Date;
 import java.util.List;
 import java.util.Map;
 
 /**
  * The JWTDecoder class holds the decode method to parse a given JWT token into it's JWT representation.
- * dd
  */
 @SuppressWarnings("WeakerAccess")
 public class JWTDecoder implements DecodedJWT {
