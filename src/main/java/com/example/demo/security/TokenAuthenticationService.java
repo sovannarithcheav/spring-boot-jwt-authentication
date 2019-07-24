@@ -1,10 +1,8 @@
 package com.example.demo.security;
 
-import io.jsonwebtoken.Header;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;
-import org.springframework.security
-        .authentication.UsernamePasswordAuthenticationToken;
+import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
 
 import javax.servlet.http.HttpServletRequest;
@@ -15,7 +13,7 @@ import java.util.Date;
 import static java.util.Collections.emptyList;
 
 class TokenAuthenticationService {
-    static final long EXPIRATIONTIME = 10_000; // 10 seconds         //864_000_000; // 10 days
+    static final long EXPIRATIONTIME = 50_000; // 10 seconds         //864_000_000; // 10 days
     static final String SECRET = "ThisIsASecret";
     static final String TOKEN_PREFIX = "GG";
     static final String HEADER_STRING = "Authorization";
@@ -29,10 +27,10 @@ class TokenAuthenticationService {
                 .compact();
         res.addHeader(HEADER_STRING, TOKEN_PREFIX + " " + JWT);
 
-        System.out.println("JWT:"+JWT);
+        System.out.println("JWT:" + JWT);
 
         jwtDecoder = new JWTDecoder(JWT);
-        System.out.println("Algorithm :"+ jwtDecoder.getAlgorithm());
+        System.out.println("Algorithm :" + jwtDecoder.getAlgorithm());
     }
 
     static Authentication getAuthentication(HttpServletRequest request) {
